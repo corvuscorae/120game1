@@ -24,25 +24,63 @@ class Location extends Scene {
         
         if(locationData.Choices) {
             if(locationData.Special){
+                for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
                 switch(locationData.Special.ID){
                     case "CARVE":
+                        //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
                         if(locationData.Special.STATE == true){ 
                             this.engine.show(locationData.Body.uncarved); 
-                            // TODO: left off here
                             locationData.Special.STATE = false;
+                        } else { 
+                            this.engine.show(locationData.Body.carved);  
+                            for(let choice of locationData["Special Choices"]) { this.engine.addChoice(choice.Text, choice); }
+                        }
+                        break;
+                    case "BASEBOARD":
+                        locationData.Special.STATE = this.engine.storyData.Pocket["Knife"];
+                        if(locationData.Special.STATE == true){ 
+                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
+                            for(let choice of locationData["Special Choices"]) { this.engine.addChoice(choice.Text, choice); } 
+                        } else { 
+                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
+                        }
+                        break;
+                    case "KNIFE":
+                        locationData.Special.STATE = !(this.engine.storyData.Pocket["Knife"]);
+                        if(locationData.Special.STATE == true){ 
+                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
+                            for(let choice of locationData["Special Choices"]) { this.engine.addChoice(choice.Text, choice); } 
+                           // locationData.Special.STATE = false;
+                        } else { 
+                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
+                        }
+                        break;
+                    case "KEY":
+                        locationData.Special.STATE = !(this.engine.storyData.Pocket["Key"]);
+                        if(locationData.Special.STATE == true){
+                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
+                            for(let choice of locationData["Special Choices"]) {
+                                let obj = choice.Object;
+                                this.engine.storyData.Pocket[obj] = true;
+                                this.engine.addChoice(choice.Text, choice); 
+                            } 
+                            
+                        } else { 
+                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
                         }
                         break;
                 }
             }
-            else{ this.engine.show(locationData.Body); }
-            for(let choice of locationData.Choices) {
-                if(choice.Object == null){ 
-                    this.engine.addChoice(choice.Text, choice);
-                } else if(choice.Object != ""){ 
-                    let obj = choice.Object;
-                    this.engine.storyData.Pocket[obj] = true;
-                    choice.Object = "";
-                    this.engine.addChoice(choice.Text, choice); 
+            else{ this.engine.show(locationData.Body); 
+                for(let choice of locationData.Choices) {
+                    if(choice.Object == null){ 
+                        this.engine.addChoice(choice.Text, choice);
+                    } else if(choice.Object != ""){ 
+                        let obj = choice.Object;
+                        this.engine.storyData.Pocket[obj] = true;
+                        choice.Object = "";
+                        this.engine.addChoice(choice.Text, choice); 
+                    }
                 }
             }
         } else {

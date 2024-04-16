@@ -3,7 +3,7 @@
     "Credits": "/// \n Created by Adam Smith (amsmith@ucsc.edu).",
     "InitialLocation": "Childhood Home 1",
     "Pocket": {
-        "Plum seed": false,
+        "Plum": false,
         "Knife": false,
         "Key": false,
         "Carving": {
@@ -87,7 +87,7 @@
                 },
                 {
                     "Text": "open shed",
-                    "Target": "shed locked"
+                    "Target": "shed locked now"
                 },
                 {
                     "Text": "hop fence",
@@ -95,7 +95,7 @@
                 }
             ]
         },
-        "shed locked": {
+        "shed locked now": {
             "Body": "the shed is locked.",
             "Choices": [
                 {
@@ -192,7 +192,7 @@
                 },
                 {
                     "Text": "kitchen",
-                    "Target": "kitchen 1"
+                    "Target": "kitchen"
                 }
             ]
         },
@@ -219,6 +219,10 @@
                 {
                     "Text": "closet",
                     "Target": "past closet 1"
+                },
+                {
+                    "Text": "hall",
+                    "Target": "hall 1"
                 }
             ]
         },
@@ -226,12 +230,8 @@
             "Body": "past desk 1.",
             "Choices": [
                 {
-                    "Text": "radio",
-                    "Target": "radio" 
-                },
-                {
                     "Text": "drawer",
-                    "Target": "drawer"
+                    "Target": "drawer" 
                 },
                 {
                     "Text": "room",
@@ -239,30 +239,26 @@
                 }
             ]
         },
-        "radio": {
-            "Body": "RADIO -- FIX.",
-            "Choices": [
-                {
-                    "Text": " < ",
-                    "Target": "past desk 1"
-                }
-            ]
-        },
         "drawer": {
             "Body": "DRAWER -- FIX.",
+            "Special": {
+                "ID": "KNIFE",
+                "STATE": true
+            },
             "Choices": [
                 {
                     "Text": "close drawer",
                     "Target": "past desk 1"
-                },
+                }
+            ],
+            "Special Choices": [
                 {
-                    "Trigger": true,
                     "Text": "Take pocket knife",
                     "Target": "knife take"
                 }
             ]
         },
-        "special: knife take": {
+        "knife take": {
             "Body": "you put the knife in your pocket and close the drawer.",
             "Choices": [
                 {
@@ -287,11 +283,17 @@
         },
         "Baseboard": {
             "Body": "u crouch down and inspect baseboard",
+            "Special": {
+                "ID": "BASEBOARD",
+                "STATE": true
+            },
             "Choices": [
                 {
                     "Text": " < ",
                     "Target": "past room 1"
-                },
+                }
+            ],
+            "Special Choices": [
                 {
                     "Text": "carve",
                     "Target": "carve"
@@ -301,7 +303,7 @@
         "carve":{
             "Body": {
                 "uncarved": "you carve the words \" > CARVE QUOTE IDK YET < \" into the baseboard and set the knife on the floor.",
-                "carved": "you already carved the words \" > CARVE QUOTE IDK YET < \" into the baseboard"
+                "carved": "the words \" > CARVE QUOTE IDK YET < \" are carved into the baseboard"
             },
             "Special": {
                 "ID": "CARVE",
@@ -310,7 +312,154 @@
             "Choices": [
                 {
                     "Text": " < ",
-                    "Target": "past closet 1"
+                    "Target": "Baseboard"
+                }
+            ],
+            "Special Choices": [
+                {
+                    "Text": "return",
+                    "Target": "present closet"
+                }
+            ]
+        },
+        "present closet": {
+            "Body": "blinking, you suddenly find yourself in a new closet. no, not new -- different. in the baseboard, stark white paint has been scratched away to reveal the words \" > CARVE QUOTE IDK YET < \"",
+            "Choices": [
+                {
+                    "Text": "room",
+                    "Target": "present room"
+                }
+            ]
+        },
+        "present room": {
+            "Body": "present room",
+            "Choices": [
+                {
+                    "Text": "go back",
+                    "Target": "past room 1"
+                }
+            ]
+        },
+        "kitchen": {
+            "Body": "kitchen.",
+            "Choices": [
+                {
+                    "Text": "hall",
+                    "Target": "hall 1"
+                },
+                {
+                    "Text": "fridge",
+                    "Target": "fridge"
+                },
+                {
+                    "Text": "pantry",
+                    "Target": "pantry"
+                },
+                {
+                    "Text": "junk drawer",
+                    "Target": "junk drawer"
+                },
+                {
+                    "Text": "glass door",
+                    "Target": "past yard"
+                }
+            ]
+        },
+        "fridge": {
+            "Body": "fridge.",
+            "Choices": [
+                {
+                    "Text": "kitchen",
+                    "Target": "kitchen"
+                }
+            ]
+        },
+        "pantry": {
+            "Body": "pantry.",
+            "Choices": [
+                {
+                    "Text": "kitchen",
+                    "Target": "kitchen"
+                }
+            ]
+        },
+        "junk drawer": {
+            "Body": "junk drawer.",
+            "Special": {
+                "ID" : "KEY",
+                "STATE": true
+            },
+            "Choices": [
+                {
+                    "Text": "kitchen",
+                    "Target": "kitchen"
+                }
+            ],
+            "Special Choices": [
+                {
+                    "Object": "Key",
+                    "Text": "take keyring",
+                    "Target": "junk drawer"
+                }
+            ]
+        },
+        "past yard": {
+            "Body": "past yard. grill and pool",
+            "Choices": [
+                {
+                    "Text": "glass door",
+                    "Target": "kitchen"
+                },
+                {
+                    "Text": "to side",
+                    "Target": "past side"
+                },
+                {
+                    "Text": "grill",
+                    "Target": "grill"
+                },
+                {
+                    "Text": "pool",
+                    "Target": "pool"
+                }
+            ]
+        },
+        "past side": {
+            "Body": "side yard. plum and shed",
+            "Choices": [
+                {
+                    "Text": "back to yard",
+                    "Target": "past yard"
+                },
+                {
+                    "Text": "plum tree",
+                    "Target": "plum tree"
+                },
+                {
+                    "Text": "shed",
+                    "Target": "past shed"
+                }
+            ]
+        },
+        "plum tree": {
+            "Body": "plum tree",
+            "Choices": [
+                {
+                    "Text": " < ",
+                    "Target": "past side"
+                },
+                {
+                    "Text": "eat a plum",
+                    "Target": "eat"
+                }
+            ]
+        },
+        "eat": {
+            "Body": "eat a plum",
+            "Choices": [
+                {
+                    "Text": " < ",
+                    "Target": "plum tree"
                 }
             ]
         }
