@@ -3,13 +3,11 @@
     "Credits": "/// \n Created by Adam Smith (amsmith@ucsc.edu).",
     "InitialLocation": "Childhood Home 1",
     "Pocket": {
-        "Plum": false,
+        "Planted": false,
+        "Spade": false,
+        "Seed": false,
         "Knife": false,
-        "Key": false,
-        "Carving": {
-            "State" : false,
-            "Text" : ". it says: idk yet!!!!!!!!!!!!!"
-        }
+        "Key": false
     },
     "Locations": {
         "Childhood Home 1": {
@@ -166,7 +164,7 @@
                 },
                 {
                     "Text": "go to side of house",
-                    "Target": "side then"
+                    "Target": "past fence"
                 }
             ]
         },
@@ -179,7 +177,7 @@
                 },
                 {
                     "Text": "go to side of house",
-                    "Target": "side then"
+                    "Target": "past side"
                 }
             ]
         },
@@ -240,7 +238,10 @@
             ]
         },
         "drawer": {
-            "Body": "DRAWER -- FIX.",
+            "Body": {
+                "Main":"DRAWER -- FIX.",
+                "Conditional" : "with knife"
+            },
             "Special": {
                 "ID": "KNIFE",
                 "STATE": true
@@ -264,7 +265,7 @@
                 {
                     "Object": "Knife",
                     "Text": " < ",
-                    "Target": "past desk 1"
+                    "Target": "drawer"
                 }
             ]
         },
@@ -282,7 +283,10 @@
             ]
         },
         "Baseboard": {
-            "Body": "u crouch down and inspect baseboard",
+            "Body": {
+                "Main":"u crouch down and inspect baseboard",
+                "Conditional" : "[it dont say shit]"
+            },
             "Special": {
                 "ID": "BASEBOARD",
                 "STATE": true
@@ -384,7 +388,10 @@
             ]
         },
         "junk drawer": {
-            "Body": "junk drawer.",
+            "Body": {
+                "Main": "junk drawer.",
+                "Conditional": "has keys"
+            },
             "Special": {
                 "ID" : "KEY",
                 "STATE": true
@@ -424,6 +431,60 @@
                 }
             ]
         },
+        "grill": {
+            "Body": {
+                "Main":"grill.",
+                "Conditional" : "sticking in the ground at its base is a gardening spade."
+            },
+            "Special":{
+                "ID":"SPADE",
+                "STATE":true
+            },
+            "Choices": [
+                {
+                    "Text": " < ",
+                    "Target": "past yard"
+                }
+            ],
+            "Special Choices": [
+                {
+                    "Text": "take spade",
+                    "Target": "take spade"
+                }
+            ]
+        },
+        "take spade": {
+            "Body": "take spade",
+            "Choices": [
+                {
+                    "Object": "Spade",
+                    "Text": " < ",
+                    "Target": "grill"
+                }
+            ]
+        },
+        "pool": {
+            "Body": "pool",
+            "Choices": [
+                {
+                    "Text": " < ",
+                    "Target": "past yard"
+                }
+            ]
+        },
+        "past fence":{
+            "Body": "over the fence, the plum tree.",
+            "Choices":[
+                {
+                    "Text": "front",
+                    "Target": "home 1"
+                },
+                {
+                    "Text": "hop fence",
+                    "Target": "past side"
+                }
+            ]
+        },
         "past side": {
             "Body": "side yard. plum and shed",
             "Choices": [
@@ -438,6 +499,10 @@
                 {
                     "Text": "shed",
                     "Target": "past shed"
+                },
+                {
+                    "Text": "hop fence",
+                    "Target": "past fence"
                 }
             ]
         },
@@ -455,13 +520,118 @@
             ]
         },
         "eat": {
-            "Body": "eat a plum",
+            "Body": {
+                "Main":"eat a plum",
+                "Conditional":""
+            },
+            "Special": {
+                "ID":"PLUM",
+                "STATE":true
+            },
             "Choices": [
                 {
                     "Text": " < ",
                     "Target": "plum tree"
                 }
+            ],
+            "Special Choices": [
+                {
+                    "Text": "pocket the seed",
+                    "Target": "pocket the seed"
+                }
             ]
+        },
+        "pocket the seed": {
+            "Body": "pocket the seed",
+            "Choices": [
+                {
+                    "Object": "Seed",
+                    "Text": "return",
+                    "Target": "side now 2"
+                }
+            ]
+        },
+        "side now 2": {
+            "Body": "side now 2",
+            "Choices": [
+                {
+                    "Text": "dig",
+                    "Target": "dig"
+                }
+            ]
+        },
+        "dig": {
+            "Body": {
+                "Main":"side now 2",
+                "Conditional":""
+            },
+            "Special":{
+                "ID":"DIG",
+                "STATE":true
+            },
+            "Choices": [
+                {
+                    "Text": "with your hands",
+                    "Target": "plant"
+                }
+            ],
+            "Special Choices": [
+                {
+                    "Text": "with the spade",
+                    "Target": "plant"
+                }
+            ]
+        },
+        "plant": {
+            "Body": "plant",
+            "Choices": [
+                {
+                    "Object": "Planted",
+                    "Text" : "go back",
+                    "Target": "plum tree"
+                }
+            ]
+        },
+        "past shed": {
+            "Body": {
+                "Main": "past shed [LOCKED]",
+                "Conditional":""
+            },
+            "Special":{
+                "ID" : "SHED",
+                "STATE" : true
+            },
+            "Choices": [
+                {
+                    "Text" : " < ",
+                    "Target": "past side"
+                }
+            ],
+            "Special Choices": [
+                {
+                    "Text" : "unlock",
+                    "Target": "inside shed"
+                }
+            ]
+        },
+        "inside shed": {
+            "Body": "inside shed (sees self)",
+            "Choices": [
+                {
+                    "Text" : "GO BACK",
+                    "Target": "ending: past"
+                },
+                {
+                    "Text" : "MOVE FORWARD",
+                    "Target": "ending: present"
+                }
+            ]
+        },
+        "ending: past": {
+            "Body": "ending: past"
+        },
+        "ending: present": {
+            "Body": "inside shed (sees self)"
         }
     }
 }

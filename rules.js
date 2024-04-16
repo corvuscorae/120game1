@@ -24,10 +24,10 @@ class Location extends Scene {
         
         if(locationData.Choices) {
             if(locationData.Special){
+                if(locationData.Special.ID != "CARVE" ) { this.engine.show(locationData.Body.Main); }
                 for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
                 switch(locationData.Special.ID){
                     case "CARVE":
-                        //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
                         if(locationData.Special.STATE == true){ 
                             this.engine.show(locationData.Body.uncarved); 
                             locationData.Special.STATE = false;
@@ -39,39 +39,61 @@ class Location extends Scene {
                     case "BASEBOARD":
                         locationData.Special.STATE = this.engine.storyData.Pocket["Knife"];
                         if(locationData.Special.STATE == true){ 
-                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
                             for(let choice of locationData["Special Choices"]) { this.engine.addChoice(choice.Text, choice); } 
-                        } else { 
-                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
+                            this.engine.show(locationData.Body.Conditional);
+                            this.engine.storyData.Pocket["Knife"] = false;
+                        }
+                        else{
+                            this.engine.show("this is a terrible hard code phrase. fix if possible. [write carving here!!!]");
                         }
                         break;
                     case "KNIFE":
                         locationData.Special.STATE = !(this.engine.storyData.Pocket["Knife"]);
                         if(locationData.Special.STATE == true){ 
-                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
                             for(let choice of locationData["Special Choices"]) { this.engine.addChoice(choice.Text, choice); } 
-                           // locationData.Special.STATE = false;
-                        } else { 
-                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
+                            this.engine.show(locationData.Body.Conditional);
                         }
                         break;
                     case "KEY":
                         locationData.Special.STATE = !(this.engine.storyData.Pocket["Key"]);
                         if(locationData.Special.STATE == true){
-                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
                             for(let choice of locationData["Special Choices"]) {
                                 let obj = choice.Object;
                                 this.engine.storyData.Pocket[obj] = true;
                                 this.engine.addChoice(choice.Text, choice); 
                             } 
-                            
-                        } else { 
-                            //for(let choice of locationData.Choices) { this.engine.addChoice(choice.Text, choice); }
+                            this.engine.show(locationData.Body.Conditional);
                         }
                         break;
-                }
+                    case "PLUM":
+                        locationData.Special.STATE = !(this.engine.storyData.Pocket["Seed"]);
+                        if(locationData.Special.STATE == true){ 
+                            for(let choice of locationData["Special Choices"]) { this.engine.addChoice(choice.Text, choice); } 
+                        }
+                        break;
+                    case "SHED":
+                        locationData.Special.STATE = (this.engine.storyData.Pocket["Key"]);
+                        if(locationData.Special.STATE == true){ 
+                            for(let choice of locationData["Special Choices"]) { this.engine.addChoice(choice.Text, choice); } 
+                        }
+                        break;
+                    case "SPADE":
+                        locationData.Special.STATE = !(this.engine.storyData.Pocket["Spade"]);
+                        if(locationData.Special.STATE == true){ 
+                            for(let choice of locationData["Special Choices"]) { this.engine.addChoice(choice.Text, choice); } 
+                            this.engine.show(locationData.Body.Conditional);
+                        }
+                        break;
+                    case "DIG":
+                        locationData.Special.STATE = this.engine.storyData.Pocket["Spade"];
+                        if(locationData.Special.STATE == true){ 
+                            for(let choice of locationData["Special Choices"]) { this.engine.addChoice(choice.Text, choice); } 
+                        }
+                        break;
+                    }
             }
-            else{ this.engine.show(locationData.Body); 
+            else{ 
+                this.engine.show(locationData.Body); 
                 for(let choice of locationData.Choices) {
                     if(choice.Object == null){ 
                         this.engine.addChoice(choice.Text, choice);
