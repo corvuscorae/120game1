@@ -1,58 +1,318 @@
 {
-    "Title": "Campus Life on the West Side",
-    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Kresge",
+    "Title": "///",
+    "Credits": "/// \n Created by Adam Smith (amsmith@ucsc.edu).",
+    "InitialLocation": "Childhood Home 1",
+    "Pocket": {
+        "Plum seed": false,
+        "Knife": false,
+        "Key": false,
+        "Carving": {
+            "State" : false,
+            "Text" : ". it says: idk yet!!!!!!!!!!!!!"
+        }
+    },
     "Locations": {
-        "Kresge": {
-            "Body": "This is Kresge College, lots of nice trees.",
+        "Childhood Home 1": {
+            "Body": "Childhood Home 1",
             "Choices": [
                 {
-                    "Text": "South",
-                    "Target": "Porter"
+                    "Text": "knock",
+                    "Target": "door open"
                 }
             ]
         },
-        "Porter": {
-            "Body": "This is Porter College, the trees are nice here too.",
+        "door open": {
+            "Body": "an unfamiliar person answers the door.",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Kresge"
+                    "Text": "peek past shoulder",
+                    "Target": "peek"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Rachel Carson"
-                }
-            ]
-        },
-        "Rachel Carson": {
-            "Body": "Rachel Carson College, more sun and fewer trees.",
-            "Choices": [
-                {
-                    "Text": "North",
-                    "Target": "Porter"
+                    "Text": "ask to go inside",
+                    "Target": "rejected"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Oakes"
+                    "Text": "leave",
+                    "Target": "Childhood Home 2"
                 }
             ]
         },
-        "Oakes": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
+        "peek": {
+            "Body": "peeked past shoulder. they ask u to leave.",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Rachel Carson"
-                },
-                {
-                    "Text": "South",
-                    "Target": "Beyond"
+                    "Text": "leave",
+                    "Target": "Childhood Home 2"
                 }
             ]
         },
-        "Beyond": {
-            "Body": "Grass, don't forget to check for ticks!"
+        "rejected": {
+            "Body": "\"no u cant come in, pls leave.\"",
+            "Choices": [
+                {
+                    "Text": "leave",
+                    "Target": "Childhood Home 2"
+                }
+            ]
+        },
+        "Childhood Home 2": {
+            "Body": "Childhood Home 2",
+            "Choices": [
+                {
+                    "Text": "go to side of house",
+                    "Target": "side now"
+                }
+            ]
+        },
+        "side now": {
+            "Body": "side of house [1]: there's a blank space in the sky over the top of the fence where the plum tree once stood.",
+            "Choices": [
+                {
+                    "Text": "hop fence",
+                    "Target": "backyard now 1"
+                },
+                {
+                    "Text": "go back",
+                    "Target": "home 1"
+                }
+            ]
+        },
+        "backyard now 1": {
+            "Body": "backyard 1: there's a perfect patch of grass instead of a plum tree. the old shed is the same gray as the house.",
+            "Choices": [
+                {
+                    "Text": "wander further",
+                    "Target": "backyard now 2"
+                },
+                {
+                    "Text": "open shed",
+                    "Target": "shed locked"
+                },
+                {
+                    "Text": "hop fence",
+                    "Target": "side now"
+                }
+            ]
+        },
+        "shed locked": {
+            "Body": "the shed is locked.",
+            "Choices": [
+                {
+                    "Text": " < ",
+                    "Target": "backyard now 1"
+                }
+            ]
+        },
+        "backyard now 2": {
+            "Body": "backyard 2: there's a nice grill, now, with granite counters; there's an in-ground pool.",
+            "Choices": [
+                {
+                    "Text": "grill",
+                    "Target": "caught"
+                },
+                {
+                    "Text": "pool",
+                    "Target": "caught"
+                },
+                {
+                    "Text": "fence",
+                    "Target": "backyard now 1"
+                }
+            ]
+        },
+        "caught": {
+            "Body": "you don't make it two steps before the person who answered the door earlier bursts from the door. \"leave now or i'll call the police,\" they shout.",
+            "Choices": [
+                {
+                    "Text": "run!",
+                    "Target": "run 1"
+                }
+            ]
+        },
+        "run 1": {
+            "Body": "you run back the way you came",
+            "Choices": [
+                {
+                    "Text": "run!",
+                    "Target": "run 2"
+                }
+            ]
+        },
+        "run 2": {
+            "Body": "you clambor over the fence",
+            "Choices": [
+                {
+                    "Text": "run!",
+                    "Target": "go back"
+                }
+            ]
+        },
+        "go back": {
+            "Body": "go back",
+            "Choices": [
+                {
+                    "Text": "go back!",
+                    "Target": "home 1"
+                }
+            ]
+        },
+        "home 1": {
+            "Body": "ur standing in front of your house. [PAST]",
+            "Choices": [
+                {
+                    "Text": "knock on door",
+                    "Target": "knock"
+                },
+                {
+                    "Text": "go to side of house",
+                    "Target": "side then"
+                }
+            ]
+        },
+        "knock": {
+            "Body": "\"it's open!\" calls a familiar voice.",
+            "Choices": [
+                {
+                    "Text": "go inside",
+                    "Target": "foyer"
+                },
+                {
+                    "Text": "go to side of house",
+                    "Target": "side then"
+                }
+            ]
+        },
+        "foyer": {
+            "Body": "you step into the foyer. inside looks as it always does; the walls are lined with photos of your family, trailing down a hallway to your left. to your right, the kitchen.",
+            "Choices": [
+                {
+                    "Text": "hall",
+                    "Target": "hall 1"
+                },
+                {
+                    "Text": "kitchen",
+                    "Target": "kitchen 1"
+                }
+            ]
+        },
+        "hall 1": {
+            "Body": "hall 1.",
+            "Choices": [
+                {
+                    "Text": "room",
+                    "Target": "past room 1"
+                },
+                {
+                    "Text": "foyer",
+                    "Target": "foyer"
+                }
+            ]
+        },
+        "past room 1": {
+            "Body": "past room 1.",
+            "Choices": [
+                {
+                    "Text": "desk",
+                    "Target": "past desk 1"
+                },
+                {
+                    "Text": "closet",
+                    "Target": "past closet 1"
+                }
+            ]
+        },
+        "past desk 1": {
+            "Body": "past desk 1.",
+            "Choices": [
+                {
+                    "Text": "radio",
+                    "Target": "radio" 
+                },
+                {
+                    "Text": "drawer",
+                    "Target": "drawer"
+                },
+                {
+                    "Text": "room",
+                    "Target": "past room 1"
+                }
+            ]
+        },
+        "radio": {
+            "Body": "RADIO -- FIX.",
+            "Choices": [
+                {
+                    "Text": " < ",
+                    "Target": "past desk 1"
+                }
+            ]
+        },
+        "drawer": {
+            "Body": "DRAWER -- FIX.",
+            "Choices": [
+                {
+                    "Text": "close drawer",
+                    "Target": "past desk 1"
+                },
+                {
+                    "Trigger": true,
+                    "Text": "Take pocket knife",
+                    "Target": "knife take"
+                }
+            ]
+        },
+        "special: knife take": {
+            "Body": "you put the knife in your pocket and close the drawer.",
+            "Choices": [
+                {
+                    "Object": "Knife",
+                    "Text": " < ",
+                    "Target": "past desk 1"
+                }
+            ]
+        },
+        "past closet 1": {
+            "Body": "past CLOSET 1.",
+            "Choices": [
+                {
+                    "Text": " < ",
+                    "Target": "past room 1"
+                },
+                {
+                    "Text": "Baseboard",
+                    "Target": "Baseboard"
+                }
+            ]
+        },
+        "Baseboard": {
+            "Body": "u crouch down and inspect baseboard",
+            "Choices": [
+                {
+                    "Text": " < ",
+                    "Target": "past room 1"
+                },
+                {
+                    "Text": "carve",
+                    "Target": "carve"
+                }
+            ]
+        },
+        "carve":{
+            "Body": {
+                "uncarved": "you carve the words \" > CARVE QUOTE IDK YET < \" into the baseboard and set the knife on the floor.",
+                "carved": "you already carved the words \" > CARVE QUOTE IDK YET < \" into the baseboard"
+            },
+            "Special": {
+                "ID": "CARVE",
+                "STATE": true
+            },
+            "Choices": [
+                {
+                    "Text": " < ",
+                    "Target": "past closet 1"
+                }
+            ]
         }
     }
 }

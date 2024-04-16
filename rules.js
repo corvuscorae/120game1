@@ -20,17 +20,35 @@ class Start extends Scene {
 
 class Location extends Scene {
     create(key) {
-        let locationData = this.engine.storyData.Locations[key]; // TODO: use `key` to get the data object for the current story location
-        this.engine.show(locationData.Body); // TODO: replace this text by the Body of the location data
+        let locationData = this.engine.storyData.Locations[key];
         
-        if(locationData.Choices) { // TODO: check if the location has any Choices /* my sln: shorthand for "locationData.Choices != null"
-            for(let choice of locationData.Choices) { // TODO: loop over the location's Choices
-                this.engine.addChoice(choice.Text, choice); // TODO: use the Text of the choice
-                // TODO: add a useful second argument to addChoice so that the current code of handleChoice below works
+        if(locationData.Choices) {
+            if(locationData.Special){
+                switch(locationData.Special.ID){
+                    case "CARVE":
+                        if(locationData.Special.STATE == true){ 
+                            this.engine.show(locationData.Body.uncarved); 
+                            // TODO: left off here
+                            locationData.Special.STATE = false;
+                        }
+                        break;
+                }
+            }
+            else{ this.engine.show(locationData.Body); }
+            for(let choice of locationData.Choices) {
+                if(choice.Object == null){ 
+                    this.engine.addChoice(choice.Text, choice);
+                } else if(choice.Object != ""){ 
+                    let obj = choice.Object;
+                    this.engine.storyData.Pocket[obj] = true;
+                    choice.Object = "";
+                    this.engine.addChoice(choice.Text, choice); 
+                }
             }
         } else {
             this.engine.addChoice("The end.")
         }
+        this.engine.show("<br>");
     }
 
     handleChoice(choice) {
