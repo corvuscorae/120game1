@@ -40,11 +40,11 @@ class Location extends Scene {
                         locationData.Special.STATE = this.engine.storyData.Pocket["Knife"];
                         if(locationData.Special.STATE == true){ 
                             for(let choice of locationData["Special Choices"]) { this.engine.addChoice(choice.Text, choice); } 
-                            this.engine.show(locationData.Body.Conditional);
+                            //this.engine.show(locationData.Body.Conditional);
                             this.engine.storyData.Pocket["Knife"] = false;
                         }
                         else{
-                            this.engine.show("this is a terrible hard code phrase. fix if possible. [write carving here!!!]");
+                            this.engine.show(locationData.Body.Conditional);
                         }
                         break;
                     case "KNIFE":

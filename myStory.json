@@ -1,7 +1,7 @@
 {
-    "Title": "///",
+    "Title": "plums from the tree",
     "Credits": "/// \n Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Childhood Home 1",
+    "InitialLocation": "Childhood Home",
     "Pocket": {
         "Planted": false,
         "Spade": false,
@@ -10,8 +10,8 @@
         "Key": false
     },
     "Locations": {
-        "Childhood Home 1": {
-            "Body": "Childhood Home 1",
+        "Childhood Home": {
+            "Body": "You are standing in front of your childhood home. It has changed; the siding is a neutral, marketable gray. There's something missing, but you can't quite put your finger on it.",
             "Choices": [
                 {
                     "Text": "knock",
@@ -20,10 +20,10 @@
             ]
         },
         "door open": {
-            "Body": "an unfamiliar person answers the door.",
+            "Body": "An unfamiliar person answers the door. \"Can I help you?\" they ask.",
             "Choices": [
                 {
-                    "Text": "peek past shoulder",
+                    "Text": "peek",
                     "Target": "peek"
                 },
                 {
@@ -31,96 +31,106 @@
                     "Target": "rejected"
                 },
                 {
-                    "Text": "leave",
+                    "Text": "apologize and leave",
                     "Target": "Childhood Home 2"
                 }
             ]
         },
         "peek": {
-            "Body": "peeked past shoulder. they ask u to leave.",
+            "Body": "You caution a glance over the stranger's shoulder. The walls behind them are coated in white paint and lined with tasteful, marketable decor. The stranger's smile fades and they firmly ask you to leave.",
             "Choices": [
                 {
-                    "Text": "leave",
+                    "Text": "apologize and leave",
                     "Target": "Childhood Home 2"
                 }
             ]
         },
         "rejected": {
-            "Body": "\"no u cant come in, pls leave.\"",
+            "Body": "The stranger's smile fades for only a moment, but when it returns it's clearly strained. \"I don't know who you are,\" they say. \"I think you should leave.\"",
             "Choices": [
                 {
-                    "Text": "leave",
+                    "Text": "apologize and leave",
                     "Target": "Childhood Home 2"
                 }
             ]
         },
         "Childhood Home 2": {
-            "Body": "Childhood Home 2",
+            "Body": "You are standing in front of your childhood home. It has changed; it is no longer your home.",
             "Choices": [
                 {
-                    "Text": "go to side of house",
-                    "Target": "side now"
+                    "Text": "to fence",
+                    "Target": "fence now"
                 }
             ]
         },
-        "side now": {
-            "Body": "side of house [1]: there's a blank space in the sky over the top of the fence where the plum tree once stood.",
+        "fence now": {
+            "Body": "This fence is pine-orange and new with a blank space in the sky -- also new -- over the top of it. There used to be a plum tree. It used to fill that void.",
             "Choices": [
                 {
                     "Text": "hop fence",
-                    "Target": "backyard now 1"
+                    "Target": "side now"
                 },
                 {
                     "Text": "go back",
-                    "Target": "home 1"
+                    "Target": "go back"
                 }
             ]
         },
-        "backyard now 1": {
-            "Body": "backyard 1: there's a perfect patch of grass instead of a plum tree. the old shed is the same gray as the house.",
+        "go back": {
+            "Body": "All the way back?",
             "Choices": [
                 {
-                    "Text": "wander further",
-                    "Target": "backyard now 2"
+                    "Text": "All the way back.",
+                    "Target": "home"
+                }
+            ]
+
+        },
+        "side now": {
+            "Body": "The side yard feels oddly hollow. There's a perfect patch of grass beneath the pine-new fence instead of a plum tree. The old shed is still there, though, and it's the same gray as the siding.",
+            "Choices": [
+                {
+                    "Text": "to backyard",
+                    "Target": "backyard now"
                 },
                 {
-                    "Text": "open shed",
+                    "Text": "shed",
                     "Target": "shed locked now"
                 },
                 {
                     "Text": "hop fence",
-                    "Target": "side now"
+                    "Target": "fence now"
                 }
             ]
         },
         "shed locked now": {
-            "Body": "the shed is locked.",
+            "Body": "The shed is locked.",
             "Choices": [
                 {
                     "Text": " < ",
-                    "Target": "backyard now 1"
+                    "Target": "side now"
                 }
             ]
         },
-        "backyard now 2": {
-            "Body": "backyard 2: there's a nice grill, now, with granite counters; there's an in-ground pool.",
+        "backyard now": {
+            "Body": "The dimension are as you remember them, only now it's half-filled with that same perfect grass. On the patio, there's a nice propane grill -- one of those with built-in granite counters. Toward the back the fence, there's an in-ground pool.",
             "Choices": [
                 {
-                    "Text": "grill",
+                    "Text": "to grill",
                     "Target": "caught"
                 },
                 {
-                    "Text": "pool",
+                    "Text": "to pool",
                     "Target": "caught"
                 },
                 {
-                    "Text": "fence",
-                    "Target": "backyard now 1"
+                    "Text": "to fence",
+                    "Target": "side now"
                 }
             ]
         },
         "caught": {
-            "Body": "you don't make it two steps before the person who answered the door earlier bursts from the door. \"leave now or i'll call the police,\" they shout.",
+            "Body": "You don't make it two steps before the person who answered the door earlier bursts from the door off the patio. \"Leave right now,\" they shout. \"Or I'll call the police!\"",
             "Choices": [
                 {
                     "Text": "run!",
@@ -129,7 +139,7 @@
             ]
         },
         "run 1": {
-            "Body": "you run back the way you came",
+            "Body": "Obliging, you run back the way you came.",
             "Choices": [
                 {
                     "Text": "run!",
@@ -138,7 +148,7 @@
             ]
         },
         "run 2": {
-            "Body": "you clambor over the fence",
+            "Body": "You clambor over the fence.",
             "Choices": [
                 {
                     "Text": "run!",
@@ -146,60 +156,59 @@
                 }
             ]
         },
-        "go back": {
-            "Body": "go back",
+        "home": {
+            "Body": "****FIX*****You are standing in front of your -childhood- home. It -has changed- is as it always is; the siding is a -neutral, marketable gray- warm, dingy [[yellow]]. There's -something- nothing missing, but you -can't quite put your finger on it- feel oddly hollow all the same.",
             "Choices": [
                 {
-                    "Text": "go back!",
-                    "Target": "home 1"
-                }
-            ]
-        },
-        "home 1": {
-            "Body": "ur standing in front of your house. [PAST]",
-            "Choices": [
-                {
-                    "Text": "knock on door",
+                    "Text": "knock",
                     "Target": "knock"
                 },
                 {
-                    "Text": "go to side of house",
+                    "Text": "to fence",
                     "Target": "past fence"
                 }
             ]
         },
         "knock": {
-            "Body": "\"it's open!\" calls a familiar voice.",
+            "Body": "******FIX*****\"It's open!\" calls a familiar voice, and of course it is. It always -was- is.",
             "Choices": [
                 {
-                    "Text": "go inside",
+                    "Text": "enter",
                     "Target": "foyer"
                 },
                 {
-                    "Text": "go to side of house",
+                    "Text": "to fence",
                     "Target": "past side"
                 }
             ]
         },
         "foyer": {
-            "Body": "you step into the foyer. inside looks as it always does; the walls are lined with photos of your family, trailing down a hallway to your left. to your right, the kitchen.",
+            "Body": "You step into a modest foyer. The walls are covered with patterned wallpaper and lined with photos of your family. To your left, the hall; to your right, the kitchen.",
             "Choices": [
                 {
-                    "Text": "hall",
-                    "Target": "hall 1"
+                    "Text": "to hall",
+                    "Target": "hall"
                 },
                 {
-                    "Text": "kitchen",
+                    "Text": "to kitchen",
                     "Target": "kitchen"
                 }
             ]
         },
-        "hall 1": {
-            "Body": "hall 1.",
+        "hall": {
+            "Body": "The hall is bathed in yellow light cascading from a bulb in the ceiling. The carpet is brown; the walls are bare except for an heirloom cross and three doors.",
             "Choices": [
                 {
-                    "Text": "room",
-                    "Target": "past room 1"
+                    "Text": "left door",
+                    "Target": "left"
+                },
+                {
+                    "Text": "center door",
+                    "Target": "center"
+                },
+                {
+                    "Text": "right door",
+                    "Target": "past room"
                 },
                 {
                     "Text": "foyer",
@@ -207,40 +216,58 @@
                 }
             ]
         },
-        "past room 1": {
-            "Body": "past room 1.",
-            "Choices": [
+        "center":{
+            "Body" : "The bathroom.",
+            "Choices" :[
                 {
-                    "Text": "desk",
-                    "Target": "past desk 1"
-                },
-                {
-                    "Text": "closet",
-                    "Target": "past closet 1"
-                },
-                {
-                    "Text": "hall",
-                    "Target": "hall 1"
+                    "Text":" < ",
+                    "Target" : "hall"
                 }
             ]
         },
-        "past desk 1": {
-            "Body": "past desk 1.",
+        "left":{
+            "Body" : "A bedroom. It isn't yours.",
+            "Choices" :[
+                {
+                    "Text":" < ",
+                    "Target" : "hall"
+                }
+            ]
+        },
+        "past room": {
+            "Body": "The walls are covered with posters of your favorite band. The bed is unmade, its comforter a tangled mess of colorful polka dots, its pillows askew and mismatched. There's a desk in the corner and a closet door on the opposite side of wall. This is your bedroom.",
             "Choices": [
                 {
-                    "Text": "drawer",
+                    "Text": "to desk",
+                    "Target": "past desk"
+                },
+                {
+                    "Text": "to closet",
+                    "Target": "past closet"
+                },
+                {
+                    "Text": "to hall",
+                    "Target": "hall"
+                }
+            ]
+        },
+        "past desk": {
+            "Body": "The wood is reddish brown and study despite its age; your grandma let you have it when you graduated sixth grade. There's a couple of figurines -- characters from that cartoon you watched all the time -- and a pile of books. You used to love reading.",
+            "Choices": [
+                {
+                    "Text": "open drawer",
                     "Target": "drawer" 
                 },
                 {
-                    "Text": "room",
-                    "Target": "past room 1"
+                    "Text": " < ",
+                    "Target": "past room"
                 }
             ]
         },
         "drawer": {
             "Body": {
-                "Main":"DRAWER -- FIX.",
-                "Conditional" : "with knife"
+                "Main":"You have to pry the drawer open a little because it's absolutely stuffed with old homework, birthday cards, pencils, and the like.",
+                "Conditional" : "In the corner, the bright red of your pocket knife draws your eye."
             },
             "Special": {
                 "ID": "KNIFE",
@@ -249,18 +276,18 @@
             "Choices": [
                 {
                     "Text": "close drawer",
-                    "Target": "past desk 1"
+                    "Target": "past desk"
                 }
             ],
             "Special Choices": [
                 {
-                    "Text": "Take pocket knife",
+                    "Text": "take pocket knife",
                     "Target": "knife take"
                 }
             ]
         },
         "knife take": {
-            "Body": "you put the knife in your pocket and close the drawer.",
+            "Body": "You put the knife in your pocket.",
             "Choices": [
                 {
                     "Object": "Knife",
@@ -269,23 +296,23 @@
                 }
             ]
         },
-        "past closet 1": {
-            "Body": "past CLOSET 1.",
+        "past closet": {
+            "Body": "You open the door to a dark, cramped closet as wide and deep as the door itself. Well-worn band tees and skinny jeans hang heavy enough to bow the rod, and the rest of your clothes are stuffed haphazardly on the top shelf or, to you mother's chagrin, on the floor.",
             "Choices": [
                 {
                     "Text": " < ",
-                    "Target": "past room 1"
+                    "Target": "past room"
                 },
                 {
-                    "Text": "Baseboard",
+                    "Text": "inspect baseboard",
                     "Target": "Baseboard"
                 }
             ]
         },
         "Baseboard": {
             "Body": {
-                "Main":"u crouch down and inspect baseboard",
-                "Conditional" : "[it dont say shit]"
+                "Main":"You take a closer look at the baseboard just inside the closet.",
+                "Conditional" : "Your name is carved into the wood."
             },
             "Special": {
                 "ID": "BASEBOARD",
@@ -294,20 +321,20 @@
             "Choices": [
                 {
                     "Text": " < ",
-                    "Target": "past room 1"
+                    "Target": "past room"
                 }
             ],
             "Special Choices": [
                 {
-                    "Text": "carve",
+                    "Text": "knife",
                     "Target": "carve"
                 }
             ]
         },
         "carve":{
             "Body": {
-                "uncarved": "you carve the words \" > CARVE QUOTE IDK YET < \" into the baseboard and set the knife on the floor.",
-                "carved": "the words \" > CARVE QUOTE IDK YET < \" are carved into the baseboard"
+                "uncarved": "You take out your pocket knife and carve your name into the wood of the baseboard. You set the knife on the floor.",
+                "carved": "Your name -is- will remain carved into the baseboard***FIX****"
             },
             "Special": {
                 "ID": "CARVE",
@@ -327,33 +354,33 @@
             ]
         },
         "present closet": {
-            "Body": "blinking, you suddenly find yourself in a new closet. no, not new -- different. in the baseboard, stark white paint has been scratched away to reveal the words \" > CARVE QUOTE IDK YET < \"",
+            "Body": "Blinking, you suddenly find yourself crouching in a new closet. No, not new -- different. It's tidier and smells vaguely of paint. In the baseboard, stark white gloss has been scratched away to reveal your name, after all these years.",
             "Choices": [
                 {
-                    "Text": "room",
+                    "Text": " < ",
                     "Target": "present room"
                 }
             ]
         },
         "present room": {
-            "Body": "present room",
+            "Body": "The walls are covered with posters of that one band -- the one you heard on the radio nonstop last summer. The bed is unmade, its comforter a tangled mess of black and white stripes, its pillows askew and mismatched. There's a desk in the corner and a closet door on the opposite side of wall. This is no longer your bedroom.",
             "Choices": [
                 {
                     "Text": "go back",
-                    "Target": "past room 1"
+                    "Target": "past room"
                 }
             ]
         },
         "kitchen": {
-            "Body": "kitchen.",
+            "Body": "A wide window spills its warm sunshine across beige laminate countertops and laquered wood cabinets. The counters are a mess of mail and car keys and over-ripe fruit. This is the heart of your home, and you are struck with the disconcerting feeling that it always will be, even when home grows legs and runs far away from this place.",
             "Choices": [
                 {
-                    "Text": "hall",
-                    "Target": "hall 1"
+                    "Text": " < ",
+                    "Target": "foyer"
                 },
                 {
-                    "Text": "fridge",
-                    "Target": "fridge"
+                    "Text": "countertop",
+                    "Target": "countertop"
                 },
                 {
                     "Text": "pantry",
@@ -369,28 +396,28 @@
                 }
             ]
         },
-        "fridge": {
-            "Body": "fridge.",
+        "countertop": {
+            "Body": "You mom's key ring has a trinket you made for her in kindergarten, her car key, the house key, and about forty other keys that you have never seen her use. There's an unopened envelop with \"FINAL NOTICE\" printed across its front; the sender is some mortage firm you wouldn't have recognized at this age, but you will soon find out just how final that notice -was- is. The sweet smell of bananas fills the air.",
             "Choices": [
                 {
-                    "Text": "kitchen",
+                    "Text": " < ",
                     "Target": "kitchen"
                 }
             ]
         },
         "pantry": {
-            "Body": "pantry.",
+            "Body": "Cereal boxes, canned beans, a huge bag of rice, a assorted snacks.",
             "Choices": [
                 {
-                    "Text": "kitchen",
+                    "Text": " < ",
                     "Target": "kitchen"
                 }
             ]
         },
         "junk drawer": {
             "Body": {
-                "Main": "junk drawer.",
-                "Conditional": "has keys"
+                "Main": "You pull open the drawer to reveal an apparent disaster zone. You could probably find about anything in here. Old promotional mail coupons, dead batteries, and rubberbands for some reason; years-old stocking-stuffers, loose change, and an eyeglass repair kit.",
+                "Conditional": "On top of it all, a ziploc bag holding a bunch of keys."
             },
             "Special": {
                 "ID" : "KEY",
@@ -398,20 +425,20 @@
             },
             "Choices": [
                 {
-                    "Text": "kitchen",
+                    "Text": " < ",
                     "Target": "kitchen"
                 }
             ],
             "Special Choices": [
                 {
                     "Object": "Key",
-                    "Text": "take keyring",
+                    "Text": "take keys",
                     "Target": "junk drawer"
                 }
             ]
         },
         "past yard": {
-            "Body": "past yard. grill and pool",
+            "Body": "The dimension are as you remember them, and it's filled with patchy grass and dandelions. At the edge of the patio, there's a charcoal kettle grill with rust clinging to its lower hemisphere. Right in the center of everything, there's a 10-foot round, blue doughboy.",
             "Choices": [
                 {
                     "Text": "glass door",
@@ -422,19 +449,19 @@
                     "Target": "past side"
                 },
                 {
-                    "Text": "grill",
+                    "Text": "to grill",
                     "Target": "grill"
                 },
                 {
-                    "Text": "pool",
+                    "Text": "to pool",
                     "Target": "pool"
                 }
             ]
         },
         "grill": {
             "Body": {
-                "Main":"grill.",
-                "Conditional" : "sticking in the ground at its base is a gardening spade."
+                "Main":"As you approach, the faint smell of burnt hamburger patties past and endless summer fills your senses.",
+                "Conditional" : "Sticking in the dirt just beyond the base of the grill and the patio's edge is a gardening spade."
             },
             "Special":{
                 "ID":"SPADE",
@@ -454,7 +481,7 @@
             ]
         },
         "take spade": {
-            "Body": "take spade",
+            "Body": "You pull the spade from the earth and knock loose clods of dirt off of its curved planes. You tuck it handle-first into your back pocket.",
             "Choices": [
                 {
                     "Object": "Spade",
@@ -464,7 +491,7 @@
             ]
         },
         "pool": {
-            "Body": "pool",
+            "Body": "The patchy grass fades to mud as you approach the pool. You reach an arm over its edge. The plastic rim is sun-rendered hot and pliable, and the water is lukewarm on the surface but chillier the deeper you plunge your arm.",
             "Choices": [
                 {
                     "Text": " < ",
@@ -473,11 +500,11 @@
             ]
         },
         "past fence":{
-            "Body": "over the fence, the plum tree.",
+            "Body": "This fence is dark brown, rained-on, and a little warped with age. There is no void above it; a plum tree blots out the sky, its limbs purpled and bowing with its fruit.",
             "Choices":[
                 {
                     "Text": "front",
-                    "Target": "home 1"
+                    "Target": "home"
                 },
                 {
                     "Text": "hop fence",
@@ -486,10 +513,10 @@
             ]
         },
         "past side": {
-            "Body": "side yard. plum and shed",
+            "Body": "The grass is patchy beneath the fence, and treelimbs heavy with ripe plums cast a pleasantly cool and sun-mottled shade across the whole of the side yard. The old shed is there, of course, and it's the same baby blue you and your mom painted it a few summers back.",
             "Choices": [
                 {
-                    "Text": "back to yard",
+                    "Text": "to backyard",
                     "Target": "past yard"
                 },
                 {
@@ -507,7 +534,7 @@
             ]
         },
         "plum tree": {
-            "Body": "plum tree",
+            "Body": "Store-bought could never compete with the earthy sweetness of your plum tree's fruit. You grew up in this shade, its shape etched permanently into your skin like sweet respite from years worth of summer sun.",
             "Choices": [
                 {
                     "Text": " < ",
@@ -521,7 +548,7 @@
         },
         "eat": {
             "Body": {
-                "Main":"eat a plum",
+                "Main":"Heavy limbs beckon you forth, and you pluck one of the deper purple fruits. It's every bit as perfect as you remember.",
                 "Conditional":""
             },
             "Special": {
@@ -542,7 +569,7 @@
             ]
         },
         "pocket the seed": {
-            "Body": "pocket the seed",
+            "Body": "You scrape every last bit of nectar-sweet flesh from the plum's gnarled pit and slip the seed into you pocket.",
             "Choices": [
                 {
                     "Object": "Seed",
@@ -552,7 +579,7 @@
             ]
         },
         "side now 2": {
-            "Body": "side now 2",
+            "Body": "When you look back up, the side yard feels oddly hollow. There's a perfect patch of grass beneath a pine-new fence instead of the plum tree. The old shed is still there, though, and it's the same gray as the siding.",
             "Choices": [
                 {
                     "Text": "dig",
@@ -562,7 +589,7 @@
         },
         "dig": {
             "Body": {
-                "Main":"side now 2",
+                "Main":"You kneel to the naked, plumless earth, and you start to dig",
                 "Conditional":""
             },
             "Special":{
@@ -583,7 +610,7 @@
             ]
         },
         "plant": {
-            "Body": "plant",
+            "Body": "Once you've driven a hole you deem deep enough, you pull the plum seed right back out of your pocket and deliver it to the earth. You push the soil back into place and distantly hope that it will be enough.",
             "Choices": [
                 {
                     "Object": "Planted",
@@ -594,7 +621,7 @@
         },
         "past shed": {
             "Body": {
-                "Main": "past shed [LOCKED]",
+                "Main": "The shed is locked.",
                 "Conditional":""
             },
             "Special":{
@@ -610,12 +637,79 @@
             "Special Choices": [
                 {
                     "Text" : "unlock",
+                    "Target": "endgame warning"
+                }
+            ]
+        },
+        "endgame warning": {
+            "Body": "Is there anything else you want to explore before opening this door?",
+            "Choices": [
+                {
+                    "Text" : "Yes. Continue exploring.",
+                    "Target": "past shed"
+                },
+                {
+                    "Text" : "No. Unlock the door.",
                     "Target": "inside shed"
                 }
             ]
         },
-        "inside shed": {
-            "Body": "inside shed (sees self)",
+        "inside shed 1": {
+            "Body": "Huh.",
+            "Choices": [
+                {
+                    "Text" : "It's you",
+                    "Target": "inside shed 2"
+                }
+            ]
+        },
+        "inside shed 2": {
+            "Body": "Not as you are but as you were.",
+            "Choices": [
+                {
+                    "Text" : "A kid",
+                    "Target": "inside shed 3"
+                }
+            ]
+        },
+        "inside shed 3": {
+            "Body": "It's like you opened the door to reveal a mirror through time. You know that's not your face, not anymore, not for many years. Yet there you are, ruddy-cheeked and bruised-knee, staring right back at you.",
+            "Choices": [
+                {
+                    "Text" : "No, not at you. Past you.",
+                    "Target": "inside shed 4"
+                }
+            ]
+        },
+        "inside shed 4": {
+            "Body": "You follow the refelection's gaze -- your own gaze -- to a spot over your shoulder.",
+            "Choices": [
+                {
+                    "Text" : "You, again.",
+                    "Target": "inside shed 5"
+                }
+            ]
+        },
+        "inside shed 5": {
+            "Body": "Only with more gray at your temples and deeper lines around your eyes, your lips, your cheeks. It's you as you will be, you think. The three of you stand in the shade of three plum trees.",
+            "Choices": [
+                {
+                    "Text" : " > ",
+                    "Target": "endgame 1"
+                }
+            ]
+        },
+        "endgame 1": {
+            "Body": "Through the door, a version of you whose life was simple and ripe with nectar-sweet happiness that you crave in the ever-increasing heat of your summers. Just over your shoulder, a version of you that you have yet to meet; the lines of their face like messages carved into wood in a language you have yet to learn.",
+            "Choices": [
+                {
+                    "Text" : " > ",
+                    "Target": "endgame 2"
+                }
+            ]
+        },
+        "endgame 2": {
+            "Body": "And then there's you, and the choice to be made.",
             "Choices": [
                 {
                     "Text" : "GO BACK",
@@ -628,10 +722,10 @@
             ]
         },
         "ending: past": {
-            "Body": "ending: past"
+            "Body": "Nothing since could ever compete with the earthy sweetness of your own youth. Childhood beckons like limbs heavy with ripe fruit, so you answer its call. You step through the shed door. You go back. You become what you always were, walk effortlessly into a place where most could only ever dream of going. This is a return; this is springtime beneath a plum tree, its blossoms unfurling like magic year after year, all hopeful and new. The sun is warm, and you haven't a care in the world."
         },
         "ending: present": {
-            "Body": "inside shed (sees self)"
+            "Body": "The shape of your childhood is etched into your skin like sweet respite from years worth of summer sun, but your future whispers in your ear like hope. You shut the shed door and keep your memories where they are, carved infallibly into the nectar-heavy flesh of your heart like a word set in wood. This is a new door; this is the infinite promise of time in its forward march. Endless springs bearing fruit, endless autumns enriching the earth with sweet rot, endless springs bearing fruit. Ahead of you is still you; you will be as you will be. You tuck your future in your pocket like a plum seed, all sticky and new and yours for the planting."
         }
     }
 }
